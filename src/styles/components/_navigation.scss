@@ -1,7 +1,7 @@
 .navigation {
   border-right: 1px solid rgba(93, 109, 31, 0.3);
   width: 255px;
-  height: 100vh;
+  height: 895px;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -14,21 +14,8 @@
 
     color: #73832b;
   }
-  .button-active {
-    background: rgba(141, 155, 83, 0.83);
-    border-radius: 16px;
-    margin-top: 40px;
-    padding: 14px;
-    display: flex;
 
-    p {
-      margin-left: 10px;
-      font-size: 16px;
-      color: #ffffff;
-      font-weight: 700;
-    }
-  }
-  .button {
+  a {
     border: 1px solid rgba(0, 0, 0, 0.33);
     border-radius: 16px;
     margin-top: 40px;
@@ -40,5 +27,25 @@
       font-size: 16px;
       color: black;
     }
+    .fill {
+      fill: black;
+    }
+  }
+}
+a.button-active {
+  background: rgba(141, 155, 83, 0.83);
+  border-radius: 16px;
+  margin-top: 40px;
+  padding: 14px;
+  display: flex;
+
+  p {
+    margin-left: 10px;
+    font-size: 16px;
+    color: #ffffff;
+    font-weight: 700;
+  }
+  .fill {
+    fill: white;
   }
 }

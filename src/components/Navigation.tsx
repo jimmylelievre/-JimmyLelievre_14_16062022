@@ -7,17 +7,19 @@ const Navigation = () => {
   return (
     <div className="navigation">
       <h2>HRnet</h2>
-      <NavLink to="/">
-        <div className="button-active">
-          <Person />
-          <p>Create employee</p>
-        </div>
+      <NavLink
+        to="/"
+        className={(nav) => (nav.isActive ? "button-active " : "")}
+      >
+        <Person />
+        <p>Create employee</p>
       </NavLink>
-      <NavLink to="/employee-list">
-        <div className="button">
-          <People />
-          <p>Show employees</p>
-        </div>
+      <NavLink
+        to="/employee-list"
+        className={(nav) => (nav.isActive ? "button-active " : "")}
+      >
+        <People />
+        <p>Show employees</p>
       </NavLink>
     </div>
   );
