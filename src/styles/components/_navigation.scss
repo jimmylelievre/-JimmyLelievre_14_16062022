@@ -11,14 +11,14 @@
     font-size: 16px;
     line-height: 29px;
     letter-spacing: 0.265em;
-
+    margin-bottom: 40px;
     color: #73832b;
   }
 
   a {
     border: 1px solid rgba(0, 0, 0, 0.33);
     border-radius: 16px;
-    margin-top: 40px;
+    margin-bottom: 20px;
     padding: 14px;
     display: flex;
 
@@ -35,7 +35,7 @@
 a.button-active {
   background: rgba(141, 155, 83, 0.83);
   border-radius: 16px;
-  margin-top: 40px;
+  margin-bottom: 20px;
   padding: 14px;
   display: flex;
 
