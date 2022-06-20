@@ -1,3 +1,6 @@
+import { departmentList } from "../assets/data/departmentList";
+import { stateList } from "../assets/data/StateList";
+import DateTimePicker from "../components/DateTimePicker";
 import Input from "../components/Input";
 import Select from "../components/Select";
 
@@ -10,20 +13,20 @@ const CreateEmployee = () => {
         <Input name="First Name" type="text" />
         <Input name="Last Name" type="text" />
       </div>
-      <Input name="Date of Birth" type="date" />
+      <DateTimePicker label="Date of Birth" />
       <h3>Personal Adress</h3>
       <div className="flex">
         <Input name="Street" type="text" />
         <Input name="City" type="text" />
       </div>{" "}
       <div className="flex">
-        <Select label="State" />
+        <Select label="State" options={stateList} />
         <Input name="Zip Code" type="number" />
       </div>
       <h3>Company Informations</h3>
       <div className="flex">
-        <Input name="Start Date" type="date" />
-        <Select label="Department" />
+        <DateTimePicker label="Start Date" />
+        <Select label="Department" options={departmentList} />
       </div>
       <div className="button">
         <p>Create employee</p>

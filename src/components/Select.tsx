@@ -2,17 +2,25 @@ import React from "react";
 
 type Props = {
   label: string;
+  options: string[] | { name: string; abbreviation: string }[];
 };
 
-const Select = ({ label }: Props) => {
+const Select = ({ label, options }: Props) => {
   return (
     <div className="select">
       <p>{label}</p>
       <div className="box-select">
         <select>
-          <option value="Paris">Paris</option>
-          <option value="Madrid">Madrid</option>
-          <option value="Londres">Londres</option>
+          {options.map((option, id) => {
+            const name = typeof option === "object" ? option.name : option;
+            const value =
+              typeof option === "object" ? option.abbreviation : option;
+            return (
+              <option key={id} value={value}>
+                {name}
+              </option>
+            );
+          })}
         </select>
       </div>
     </div>

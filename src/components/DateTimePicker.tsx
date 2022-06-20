@@ -1,12 +1,16 @@
 import React from "react";
 
-const DateTimePicker = () => {
+type Props = {
+  label: string;
+};
+
+const DateTimePicker = ({ label }: Props) => {
+  const value = (e: any) => console.log(e.target.value);
+
   return (
-    <div>
-      <h3>DateTimepicker</h3>
-      <p>
-        <input id="datetimepicker" type="text" onChange={DateTimePicker} />
-      </p>
+    <div className="date">
+      <p>{label}</p>
+      <input id="datetimepicker" type="date" onChange={value} />
     </div>
   );
 };
