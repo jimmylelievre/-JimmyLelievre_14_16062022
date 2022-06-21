@@ -3,7 +3,7 @@ import { stateList } from "../assets/data/StateList";
 import DateTimePicker from "../components/DateTimePicker";
 import Input from "../components/Input";
 import Select from "../components/Select";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   setCity,
   setDateOfBirth,
@@ -15,9 +15,26 @@ import {
   setStreet,
   setZipCode,
 } from "../slices/form.slice";
+import { useState } from "react";
+
+interface employee {
+  firstName: string;
+  lastName: string;
+  dateOfBirth: number;
+  street: string;
+  city: string;
+  state: string;
+  zipCode: number;
+  startDay: number;
+  department: string;
+}
 
 const CreateEmployee = () => {
   const dispatch = useDispatch();
+  const newEmployee = useSelector((state: any) => state.form);
+  const [employeesList, setEmployeesList] = useState<employee>();
+
+  console.log(employeesList);
 
   return (
     <div className="create-employee">
@@ -76,7 +93,12 @@ const CreateEmployee = () => {
           setValue={(value: string) => dispatch(setDepartment(value))}
         />
       </div>
-      <div className="button">
+      <div
+        className="button"
+        onClick={() => {
+          setEmployeesList(newEmployee);
+        }}
+      >
         <p>Create employee</p>
       </div>
     </div>

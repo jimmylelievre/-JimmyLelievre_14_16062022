@@ -14,32 +14,32 @@ export const formSlice = createSlice({
     department: "Sales",
   },
   reducers: {
-    setFirstName: (state, action) => {
-      state.firstName = action;
+    setFirstName: (state, { payload }) => {
+      state.firstName = payload;
     },
-    setLastName: (state, action) => {
-      state.lastName = action;
+    setLastName: (state, { payload }) => {
+      state.lastName = payload;
     },
-    setDateOfBirth: (state, action) => {
-      state.dateOfBirth = action;
+    setDateOfBirth: (state, { payload }) => {
+      state.dateOfBirth = payload;
     },
-    setState: (state, action) => {
-      state.state = action;
+    setState: (state, { payload }) => {
+      state.state = payload;
     },
-    setDepartment: (state, action) => {
-      state.department = action;
+    setDepartment: (state, { payload }) => {
+      state.department = payload;
     },
-    setStartDay: (state, action) => {
-      state.startDay = action;
+    setStartDay: (state, { payload }) => {
+      state.startDay = payload;
     },
-    setStreet: (state, action) => {
-      state.street = action;
+    setStreet: (state, { payload }) => {
+      state.street = payload;
     },
-    setCity: (state, action) => {
-      state.city = action;
+    setCity: (state, { payload }) => {
+      state.city = payload;
     },
-    setZipCode: (state, action) => {
-      state.zipCode = action;
+    setZipCode: (state, { payload }) => {
+      state.zipCode = payload;
     },
   },
 });
