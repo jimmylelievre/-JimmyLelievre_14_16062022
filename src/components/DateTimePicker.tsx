@@ -1,16 +1,22 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 
 type Props = {
   label: string;
+  setValue: (value: string) => void;
 };
 
-const DateTimePicker = ({ label }: Props) => {
-  const value = (e: any) => console.log(e.target.value);
-
+const DateTimePicker = ({ label, setValue }: Props) => {
   return (
     <div className="date">
       <p>{label}</p>
-      <input id="datetimepicker" type="date" onChange={value} />
+      <input
+        id="datetimepicker"
+        type="date"
+        onChange={(e) => {
+          setValue(e.target.value);
+        }}
+      />
     </div>
   );
 };

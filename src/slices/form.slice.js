@@ -17,6 +17,9 @@ export const formSlice = createSlice({
     setFirstName: (state, action) => {
       state.firstName = action;
     },
+    setLastName: (state, action) => {
+      state.lastName = action;
+    },
     setDateOfBirth: (state, action) => {
       state.dateOfBirth = action;
     },
@@ -26,9 +29,30 @@ export const formSlice = createSlice({
     setDepartment: (state, action) => {
       state.department = action;
     },
+    setStartDay: (state, action) => {
+      state.startDay = action;
+    },
+    setStreet: (state, action) => {
+      state.street = action;
+    },
+    setCity: (state, action) => {
+      state.city = action;
+    },
+    setZipCode: (state, action) => {
+      state.zipCode = action;
+    },
   },
 });
 
 export default formSlice.reducer;
-export const { setFirstName, setDateOfBirth, setState, setDepartment } =
-  formSlice.actions;
+export const {
+  setFirstName,
+  setDateOfBirth,
+  setState,
+  setDepartment,
+  setStartDay,
+  setLastName,
+  setStreet,
+  setCity,
+  setZipCode,
+} = formSlice.actions;
