@@ -1,9 +1,11 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
+import employeesList from "../slices/employeesList.slice";
 import form from "../slices/form.slice";
 
 export const store = configureStore({
   reducer: {
     form: form,
+    employeesList: employeesList,
   },
 });
 

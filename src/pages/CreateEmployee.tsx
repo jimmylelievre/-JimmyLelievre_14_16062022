@@ -15,26 +15,37 @@ import {
   setStreet,
   setZipCode,
 } from "../slices/form.slice";
-import { useState } from "react";
 
-interface employee {
+import { setEmployeesList } from "../slices/employeesList.slice";
+
+/* interface employee {
+  dateOfBirth: number;
   firstName: string;
   lastName: string;
-  dateOfBirth: number;
   street: string;
   city: string;
   state: string;
   zipCode: number;
   startDay: number;
   department: string;
-}
+} */
 
 const CreateEmployee = () => {
   const dispatch = useDispatch();
   const newEmployee = useSelector((state: any) => state.form);
-  const [employeesList, setEmployeesList] = useState<employee>();
 
-  console.log(employeesList);
+  /*   const [employeesList, setEmployeesList] = useState<employee>(); */
+  /*  const employeesList: any[] = []; */
+  /* const [newEmployees, setNewEmployees] = useState<any[]>([]); */
+
+  const submitEmployee = () => {
+    const employees = JSON.parse(localStorage.getItem("employees") || "[]");
+    employees.push(newEmployee);
+    localStorage.setItem("employees", JSON.stringify(employees));
+    // permet de recupérer la liste des employées present dans le localstorage
+    const employeesList = JSON.parse(localStorage.getItem("employees") || "[]");
+    dispatch(setEmployeesList(employeesList));
+  };
 
   return (
     <div className="create-employee">
@@ -96,7 +107,7 @@ const CreateEmployee = () => {
       <div
         className="button"
         onClick={() => {
-          setEmployeesList(newEmployee);
+          submitEmployee();
         }}
       >
         <p>Create employee</p>

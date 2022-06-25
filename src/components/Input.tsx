@@ -1,6 +1,4 @@
 import React from "react";
-import { useDispatch } from "react-redux";
-import { setFirstName } from "../slices/form.slice";
 
 type Props = {
   name: string;
@@ -9,9 +7,6 @@ type Props = {
 };
 
 const Input = ({ name, type, setValue }: Props) => {
-  const dispatch = useDispatch();
-  /*   const firstName = useSelector((state: any) => state.form.firstName); */
-
   return (
     <div className="input">
       <label htmlFor={name}>{name}</label>
