@@ -17,6 +17,8 @@ import {
 } from "../slices/form.slice";
 
 import { setEmployeesList } from "../slices/employeesList.slice";
+import Modal from "../components/Modal";
+import { useState } from "react";
 
 /* interface employee {
   dateOfBirth: number;
@@ -33,6 +35,9 @@ import { setEmployeesList } from "../slices/employeesList.slice";
 const CreateEmployee = () => {
   const dispatch = useDispatch();
   const newEmployee = useSelector((state: any) => state.form);
+
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const toggleModal = () => setModalIsOpen(!modalIsOpen);
 
   /*   const [employeesList, setEmployeesList] = useState<employee>(); */
   /*  const employeesList: any[] = []; */
@@ -108,10 +113,12 @@ const CreateEmployee = () => {
         className="button"
         onClick={() => {
           submitEmployee();
+          setModalIsOpen(true);
         }}
       >
-        <p>Create employee</p>
+        <p>Create an employee</p>
       </div>
+      <Modal isOpen={modalIsOpen} onConfirm={toggleModal} />
     </div>
   );
 };
