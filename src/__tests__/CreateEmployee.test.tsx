@@ -1,22 +1,21 @@
-import { cleanup, render, screen } from "@testing-library/react";
-import Input from "../components/Input";
+import { cleanup, fireEvent, render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
 import { store } from "../app/store";
-import { setFirstName } from "../slices/form.slice";
 import App from "../App";
 
 afterEach(() => {
   cleanup();
 });
 
-describe("Given I am on the create employee page", () => {
-  test("Then i should see the form", () => {
+describe("When I am on the create employee page and I click on button create employee", () => {
+  test("Then It should renders each components of form", () => {
     render(
       <Provider store={store}>
         <App />
       </Provider>
     );
-    const firstName = screen.getByText("First Name");
+
+    const firstName = screen.getByRole("firstName-input");
     const lastName = screen.getByText("Last Name");
     const dateOfBirth = screen.getByText("Date of Birth");
     const street = screen.getByText("Street");
@@ -36,14 +35,16 @@ describe("Given I am on the create employee page", () => {
     expect(zipCode).toBeInTheDocument();
     expect(startDate).toBeInTheDocument();
     expect(department).toBeInTheDocument();
-    expect(button).toBeTruthy();
+    expect(button).toBeInTheDocument();
   });
-  /* test("Then I should see a button", () => {
-    const button = render(
-      <div className="button">
-        <p>Create employee</p>
-      </div>
+  test("Then I should enter my firstname", () => {
+    render(
+      <Provider store={store}>
+        <App />
+      </Provider>
     );
-    expect(button).toBeCalled();
-  }); */
+    const firstName = screen.getByRole("firstName-input") as HTMLInputElement;
+    fireEvent.change(firstName, { target: { value: "toto" } });
+    expect(firstName.value).toBe("toto");
+  });
 });

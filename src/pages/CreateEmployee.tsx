@@ -39,10 +39,6 @@ const CreateEmployee = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const toggleModal = () => setModalIsOpen(!modalIsOpen);
 
-  /*   const [employeesList, setEmployeesList] = useState<employee>(); */
-  /*  const employeesList: any[] = []; */
-  /* const [newEmployees, setNewEmployees] = useState<any[]>([]); */
-
   const submitEmployee = () => {
     const employees = JSON.parse(localStorage.getItem("employees") || "[]");
     employees.push(newEmployee);
@@ -60,11 +56,13 @@ const CreateEmployee = () => {
         <Input
           name="First Name"
           type="text"
+          role="firstName-input"
           setValue={(value: string) => dispatch(setFirstName(value))}
         />
         <Input
           name="Last Name"
           type="text"
+          role="lastName-input"
           setValue={(value: string) => dispatch(setLastName(value))}
         />
       </div>
@@ -77,11 +75,13 @@ const CreateEmployee = () => {
         <Input
           name="Street"
           type="text"
+          role="street-input"
           setValue={(value: string) => dispatch(setStreet(value))}
         />
         <Input
           name="City"
           type="text"
+          role="city-input"
           setValue={(value: string) => dispatch(setCity(value))}
         />
       </div>{" "}
@@ -94,6 +94,7 @@ const CreateEmployee = () => {
         <Input
           name="Zip Code"
           type="number"
+          role="number-input"
           setValue={(value: string) => dispatch(setZipCode(value))}
         />
       </div>
