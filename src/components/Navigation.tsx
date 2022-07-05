@@ -8,6 +8,7 @@ const Navigation = () => {
     <div className="navigation">
       <h2>HRnet</h2>
       <NavLink
+        role="create-employee-navigation"
         to="/"
         className={(nav) => (nav.isActive ? "button-active " : "")}
       >
@@ -15,6 +16,7 @@ const Navigation = () => {
         <p>Create employee</p>
       </NavLink>
       <NavLink
+        role="show-employees-navigation"
         to="/employee-list"
         className={(nav) => (nav.isActive ? "button-active " : "")}
       >

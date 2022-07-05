@@ -1,4 +1,10 @@
-import { cleanup, fireEvent, render, screen } from "@testing-library/react";
+import {
+  cleanup,
+  fireEvent,
+  render,
+  screen,
+  waitFor,
+} from "@testing-library/react";
 import { Provider } from "react-redux";
 import { store } from "../app/store";
 import App from "../App";
@@ -136,5 +142,77 @@ describe("When I am on the create employee page and I click on button create emp
     expect(department).toHaveLength(5);
     fireEvent.change(department, { target: { value: "Marketing" } });
     expect(department.value).toBe("Marketing");
+  });
+
+  test("Then I should click on the submit button", () => {
+    const submitEmployee = jest.fn();
+    const setModalIsOpen = jest.fn();
+
+    render(
+      <div
+        className="button"
+        role="button-create-employee"
+        onClick={() => {
+          submitEmployee();
+          setModalIsOpen(true);
+        }}
+      >
+        <p>Create an employee</p>
+      </div>
+    );
+    const button = screen.getByRole(
+      "button-create-employee"
+    ) as HTMLInputElement;
+    fireEvent.click(button);
+    expect(submitEmployee).toHaveBeenCalledTimes(1);
+    expect(setModalIsOpen).toHaveBeenCalledTimes(1);
+  });
+
+  test("Then I should see the modal", () => {
+    render(
+      <Provider store={store}>
+        <App />
+      </Provider>
+    );
+
+    const modal = screen.getByRole(
+      "button-create-employee"
+    ) as HTMLInputElement;
+
+    expect(modal.textContent).toBe("Create an employee");
+  });
+
+  test("Then I should see the button navigation create employee", () => {
+    render(
+      <Provider store={store}>
+        <App />
+      </Provider>
+    );
+
+    const buttonCreateEmployee = screen.getByRole(
+      "create-employee-navigation"
+    ) as HTMLInputElement;
+
+    expect(buttonCreateEmployee.textContent).toBe("Create employee");
+  });
+
+  test("Then I should see the button navigation show employees and when I click see the show employees page", async () => {
+    render(
+      <Provider store={store}>
+        <App />
+      </Provider>
+    );
+
+    const buttonShowEmployee = screen.getByRole(
+      "show-employees-navigation"
+    ) as HTMLInputElement;
+
+    expect(buttonShowEmployee.textContent).toBe("Show employees");
+    fireEvent.click(buttonShowEmployee);
+    await waitFor(() => screen.getByRole("show-employees"));
+
+    expect(screen.getByRole("show-employees")).toHaveTextContent(
+      "Show employees"
+    );
   });
 });

@@ -116,6 +116,7 @@ const CreateEmployee = () => {
       </div>
       <div
         className="button"
+        role="button-create-employee"
         onClick={() => {
           submitEmployee();
           setModalIsOpen(true);
@@ -123,7 +124,11 @@ const CreateEmployee = () => {
       >
         <p>Create an employee</p>
       </div>
-      <Modal isOpen={modalIsOpen} onConfirm={toggleModal} />
+      <Modal
+        role="button-create-employee"
+        isOpen={modalIsOpen}
+        onConfirm={toggleModal}
+      />
     </div>
   );
 };
