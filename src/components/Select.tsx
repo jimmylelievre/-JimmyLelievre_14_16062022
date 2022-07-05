@@ -2,16 +2,18 @@ import React from "react";
 
 type Props = {
   label: string;
+  role: string;
   options: string[] | { name: string; abbreviation: string }[];
   setValue: (value: string) => void;
 };
 
-const Select = ({ label, options, setValue }: Props) => {
+const Select = ({ label, options, role, setValue }: Props) => {
   return (
     <div className="select">
       <p>{label}</p>
       <div className="box-select">
         <select
+          role={role}
           onChange={(e) => {
             setValue(e.target.value);
           }}

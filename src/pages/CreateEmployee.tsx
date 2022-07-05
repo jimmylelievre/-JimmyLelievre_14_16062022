@@ -68,6 +68,7 @@ const CreateEmployee = () => {
       </div>
       <DateTimePicker
         label="Date of Birth"
+        role="date-time-picker"
         setValue={(value: string) => dispatch(setDateOfBirth(value))}
       />
       <h3>Personal Adress</h3>
@@ -87,6 +88,7 @@ const CreateEmployee = () => {
       </div>{" "}
       <div className="flex">
         <Select
+          role="state"
           label="State"
           options={stateList}
           setValue={(value: string) => dispatch(setState(value))}
@@ -94,18 +96,20 @@ const CreateEmployee = () => {
         <Input
           name="Zip Code"
           type="number"
-          role="number-input"
+          role="zipcode-input"
           setValue={(value: string) => dispatch(setZipCode(value))}
         />
       </div>
       <h3>Company Informations</h3>
       <div className="flex">
         <DateTimePicker
+          role="start-date"
           label="Start Date"
           setValue={(value: string) => dispatch(setStartDay(value))}
         />
         <Select
           label="Department"
+          role="department"
           options={departmentList}
           setValue={(value: string) => dispatch(setDepartment(value))}
         />
