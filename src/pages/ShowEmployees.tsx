@@ -1,11 +1,17 @@
-import React from "react";
-import Table from "../components/Table";
+import { DataTables } from "data-tables-plugin-hrnet";
+import { useSelector } from "react-redux";
+
+import { dataHeader } from "../dataMock";
 
 const ShowEmployees = () => {
+  const employeeList = useSelector(
+    (state: any) => state.employeesList.employeesList
+  );
+
   return (
-    <div className="show-employees" role="show-employees">
+    <div className="show-employees">
       <h2>Show employees</h2>
-      <Table />
+      <DataTables dataHeader={dataHeader} tableItem={employeeList} />
     </div>
   );
 };

@@ -20,18 +20,6 @@ import { setEmployeesList } from "../slices/employeesList.slice";
 import Modal from "../components/Modal";
 import { useState } from "react";
 
-/* interface employee {
-  dateOfBirth: number;
-  firstName: string;
-  lastName: string;
-  street: string;
-  city: string;
-  state: string;
-  zipCode: number;
-  startDay: number;
-  department: string;
-} */
-
 const CreateEmployee = () => {
   const dispatch = useDispatch();
   const newEmployee = useSelector((state: any) => state.form);
@@ -52,78 +40,81 @@ const CreateEmployee = () => {
     <div className="create-employee">
       <h2>Create employee</h2>
       <h3>Personal informations</h3>
-      <div className="flex">
-        <Input
-          name="First Name"
-          type="text"
-          role="firstName-input"
-          setValue={(value: string) => dispatch(setFirstName(value))}
-        />
-        <Input
-          name="Last Name"
-          type="text"
-          role="lastName-input"
-          setValue={(value: string) => dispatch(setLastName(value))}
-        />
-      </div>
-      <DateTimePicker
-        label="Date of Birth"
-        role="date-time-picker"
-        setValue={(value: string) => dispatch(setDateOfBirth(value))}
-      />
-      <h3>Personal Adress</h3>
-      <div className="flex">
-        <Input
-          name="Street"
-          type="text"
-          role="street-input"
-          setValue={(value: string) => dispatch(setStreet(value))}
-        />
-        <Input
-          name="City"
-          type="text"
-          role="city-input"
-          setValue={(value: string) => dispatch(setCity(value))}
-        />
-      </div>{" "}
-      <div className="flex">
-        <Select
-          role="state"
-          label="State"
-          options={stateList}
-          setValue={(value: string) => dispatch(setState(value))}
-        />
-        <Input
-          name="Zip Code"
-          type="number"
-          role="zipcode-input"
-          setValue={(value: string) => dispatch(setZipCode(value))}
-        />
-      </div>
-      <h3>Company Informations</h3>
-      <div className="flex">
+      <form>
+        <div className="flex">
+          <Input
+            name="First Name"
+            type="text"
+            role="firstName-input"
+            setValue={(value: string) => dispatch(setFirstName(value))}
+          />
+          <Input
+            name="Last Name"
+            type="text"
+            role="lastName-input"
+            setValue={(value: string) => dispatch(setLastName(value))}
+          />
+        </div>
         <DateTimePicker
-          role="start-date"
-          label="Start Date"
-          setValue={(value: string) => dispatch(setStartDay(value))}
+          label="Date of Birth"
+          role="date-time-picker"
+          setValue={(value: string) => dispatch(setDateOfBirth(value))}
         />
-        <Select
-          label="Department"
-          role="department"
-          options={departmentList}
-          setValue={(value: string) => dispatch(setDepartment(value))}
-        />
-      </div>
-      <div
-        className="button"
-        role="button-create-employee"
-        onClick={() => {
-          submitEmployee();
-          setModalIsOpen(true);
-        }}
-      >
-        <p>Create an employee</p>
-      </div>
+        <h3>Personal Adress</h3>
+        <div className="flex">
+          <Input
+            name="Street"
+            type="text"
+            role="street-input"
+            setValue={(value: string) => dispatch(setStreet(value))}
+          />
+          <Input
+            name="City"
+            type="text"
+            role="city-input"
+            setValue={(value: string) => dispatch(setCity(value))}
+          />
+        </div>{" "}
+        <div className="flex">
+          <Select
+            role="state"
+            label="State"
+            options={stateList}
+            setValue={(value: string) => dispatch(setState(value))}
+          />
+          <Input
+            name="Zip Code"
+            type="number"
+            role="zipcode-input"
+            setValue={(value: string) => dispatch(setZipCode(value))}
+          />
+        </div>
+        <h3>Company Informations</h3>
+        <div className="flex">
+          <DateTimePicker
+            role="start-date"
+            label="Start Date"
+            setValue={(value: string) => dispatch(setStartDay(value))}
+          />
+          <Select
+            label="Department"
+            role="department"
+            options={departmentList}
+            setValue={(value: string) => dispatch(setDepartment(value))}
+          />
+        </div>
+        <button
+          type="submit"
+          className="button"
+          data-testid="button-create-employee"
+          onClick={() => {
+            submitEmployee();
+            setModalIsOpen(true);
+          }}
+        >
+          <p>Create an employee</p>
+        </button>
+      </form>
       <Modal
         role="button-create-employee"
         isOpen={modalIsOpen}

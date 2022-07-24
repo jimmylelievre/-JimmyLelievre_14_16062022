@@ -11,6 +11,8 @@
     "@types/node": "^17.0.45",
     "@types/react": "^18.0.13",
     "@types/react-dom": "^18.0.5",
+    "data-tables-hrnet-plugin": "^0.0.3",
+    "data-tables-plugin-hrnet": "^0.0.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.2",
@@ -23,7 +25,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test ",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -43,5 +45,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/preset-typescript": "^7.18.6"
   }
 }

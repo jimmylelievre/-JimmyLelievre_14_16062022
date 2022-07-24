@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const employeesList = createSlice({
   name: "employees List",
   initialState: {
-    employeesList: [],
+    employeesList: JSON.parse(localStorage.getItem("employees") || "[]"),
   },
   reducers: {
     setEmployeesList: (state, { payload }) => {

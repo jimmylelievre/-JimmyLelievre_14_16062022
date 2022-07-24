@@ -15,7 +15,7 @@ const Table = () => {
             <th>Department</th>
           </tr>
         </thead>
-        <div className="line"></div>
+
         <tbody>
           <tr>
             <td>Jimmy Lelievre</td>

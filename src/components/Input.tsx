@@ -16,10 +16,10 @@ const Input = ({ name, type, role, setValue }: Props) => {
         role={role}
         type={type}
         id={name}
+        required
         onChange={(e) => {
           setValue(e.target.value);
         }}
-        required
       />
     </div>
   );

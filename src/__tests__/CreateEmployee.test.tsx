@@ -175,7 +175,7 @@ describe("When I am on the create employee page and I click on button create emp
       </Provider>
     );
 
-    const modal = screen.getByRole(
+    const modal = screen.getByTestId(
       "button-create-employee"
     ) as HTMLInputElement;
 
