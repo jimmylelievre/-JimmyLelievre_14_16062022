@@ -14,6 +14,7 @@ const DateTimePicker = ({ label, role, setValue }: Props) => {
         role={role}
         id="datetimepicker"
         type="date"
+        required
         onChange={(e) => {
           setValue(e.target.value);
         }}

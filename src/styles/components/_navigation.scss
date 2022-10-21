@@ -1,7 +1,7 @@
 .navigation {
   border-right: 1px solid rgba(93, 109, 31, 0.3);
   width: 255px;
-  height: 895px;
+  height: 970px;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -47,5 +47,28 @@ a.button-active {
   }
   .fill {
     fill: white;
+  }
+}
+/* @media screen and (max-width: 1200px) {
+  .navigation {
+    height: 1463px;
+  }
+} */
+@media screen and (max-width: 1220px) {
+  .navigation {
+    height: 0;
+    flex-direction: row;
+    gap: 20px;
+    border-right: 0;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-top: 70px;
+    p {
+      display: none;
+    }
+    h2 {
+      display: none;
+    }
   }
 }

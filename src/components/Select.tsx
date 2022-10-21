@@ -13,6 +13,7 @@ const Select = ({ label, options, role, setValue }: Props) => {
       <p>{label}</p>
       <div className="box-select">
         <select
+          required
           role={role}
           onChange={(e) => {
             setValue(e.target.value);

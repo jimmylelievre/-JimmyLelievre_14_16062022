@@ -4,19 +4,29 @@
   margin-top: 30px;
 
   .box-select {
-    width: 431px;
     border: 1px solid rgba(0, 0, 0, 0.33);
     border-radius: 16px;
+    width: 431px;
   }
   p {
     margin-bottom: 10px;
   }
   select {
-    width: 415px;
     outline: none;
     padding: 10px;
     border: none;
     border-radius: 16px;
     background: none;
+    width: 410px;
+  }
+}
+@media screen and (max-width: 1220px) {
+  .select {
+    select {
+      width: 95%;
+    }
+    .box-select {
+      width: 100%;
+    }
   }
 }

@@ -1,5 +1,5 @@
 export const dataHeader = [
-  "Fist Name",
+  "First Name",
   "Last Name",
   "Start Date",
   "Department",

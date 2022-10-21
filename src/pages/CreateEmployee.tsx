@@ -27,20 +27,23 @@ const CreateEmployee = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const toggleModal = () => setModalIsOpen(!modalIsOpen);
 
-  const submitEmployee = () => {
+  const submitEmployee = (e: any) => {
+    e.preventDefault();
     const employees = JSON.parse(localStorage.getItem("employees") || "[]");
     employees.push(newEmployee);
     localStorage.setItem("employees", JSON.stringify(employees));
     // permet de recupérer la liste des employées present dans le localstorage
     const employeesList = JSON.parse(localStorage.getItem("employees") || "[]");
     dispatch(setEmployeesList(employeesList));
+
+    setModalIsOpen(true);
   };
 
   return (
     <div className="create-employee">
-      <h2>Create employee</h2>
-      <h3>Personal informations</h3>
-      <form>
+      <form onSubmit={submitEmployee}>
+        <h2>Create employee</h2>
+        <h3>Personal informations</h3>
         <div className="flex">
           <Input
             name="First Name"
@@ -103,18 +106,20 @@ const CreateEmployee = () => {
             setValue={(value: string) => dispatch(setDepartment(value))}
           />
         </div>
-        <button
-          type="submit"
-          className="button"
-          data-testid="button-create-employee"
-          onClick={() => {
-            submitEmployee();
-            setModalIsOpen(true);
-          }}
-        >
-          <p>Create an employee</p>
-        </button>
+        <div className="container-button">
+          <button
+            type="submit"
+            className="button"
+            data-testid="button-create-employee"
+          >
+            <p>Create an employee</p>
+          </button>
+          <button className="button" type="reset">
+            <p>Réinitialiser le formulaire</p>
+          </button>
+        </div>
       </form>
+
       <Modal
         role="button-create-employee"
         isOpen={modalIsOpen}

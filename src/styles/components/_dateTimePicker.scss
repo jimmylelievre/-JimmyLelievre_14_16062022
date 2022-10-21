@@ -10,7 +10,14 @@
     border: 1px solid rgba(0, 0, 0, 0.33);
     border-radius: 16px;
     width: 431px;
-    padding: 10px;
+
     outline: none;
+  }
+}
+@media screen and (max-width: 1220px) {
+  .date {
+    input {
+      width: 100%;
+    }
   }
 }
