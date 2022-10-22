@@ -8,6 +8,7 @@ import {
 import { Provider } from "react-redux";
 import { store } from "../app/store";
 import App from "../App";
+import ShowEmployees from "../pages/ShowEmployees";
 
 afterEach(() => {
   cleanup();
@@ -209,10 +210,6 @@ describe("When I am on the create employee page and I click on button create emp
 
     expect(buttonShowEmployee.textContent).toBe("Show employees");
     fireEvent.click(buttonShowEmployee);
-    await waitFor(() => screen.getByRole("show-employees"));
-
-    expect(screen.getByRole("show-employees")).toHaveTextContent(
-      "Show employees"
-    );
+    await waitFor(() => screen.getByText("Show Employees"));
   });
 });

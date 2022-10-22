@@ -10,7 +10,7 @@ const ShowEmployees = () => {
 
   return (
     <div className="show-employees">
-      <h2>Show employees</h2>
+      <h2>Show Employees</h2>
       <DataTables dataHeader={dataHeader} tableItem={employeeList} />
     </div>
   );
