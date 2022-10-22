@@ -1,13 +1,13 @@
 export const dataHeader = [
-  "First Name",
-  "Last Name",
-  "Start Date",
+  "Firstname",
+  "Lastname",
+  "Start",
   "Department",
-  "Date of birth",
+  "Birth",
   "Street",
   "City",
   "State",
-  "Zip Code",
+  "ZipCode",
 ];
 
 export const tableItem = [

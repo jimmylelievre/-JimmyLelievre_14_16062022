@@ -1,4 +1,4 @@
-.select {
+.select-container {
   display: flex;
   flex-direction: column;
   margin-top: 30px;
@@ -17,11 +17,13 @@
     border: none;
     border-radius: 16px;
     background: none;
+  }
+  .width {
     width: 410px;
   }
 }
 @media screen and (max-width: 1220px) {
-  .select {
+  .select-container {
     select {
       width: 95%;
     }

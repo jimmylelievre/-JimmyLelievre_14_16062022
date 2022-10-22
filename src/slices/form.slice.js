@@ -3,25 +3,25 @@ import { createSlice } from "@reduxjs/toolkit";
 export const formSlice = createSlice({
   name: "form",
   initialState: {
-    firstName: "",
-    lastName: "",
-    dateOfBirth: "",
+    firstname: "",
+    lastname: "",
+    start: "",
+    department: "Sales",
+    birth: "",
     street: "",
     city: "",
     state: "Alabama",
-    zipCode: "",
-    startDay: "",
-    department: "Sales",
+    zipcode: "",
   },
   reducers: {
     setFirstName: (state, { payload }) => {
-      state.firstName = payload;
+      state.firstname = payload;
     },
     setLastName: (state, { payload }) => {
-      state.lastName = payload;
+      state.lastname = payload;
     },
     setDateOfBirth: (state, { payload }) => {
-      state.dateOfBirth = payload;
+      state.birth = payload;
     },
     setState: (state, { payload }) => {
       state.state = payload;
@@ -30,7 +30,7 @@ export const formSlice = createSlice({
       state.department = payload;
     },
     setStartDay: (state, { payload }) => {
-      state.startDay = payload;
+      state.start = payload;
     },
     setStreet: (state, { payload }) => {
       state.street = payload;
@@ -39,7 +39,7 @@ export const formSlice = createSlice({
       state.city = payload;
     },
     setZipCode: (state, { payload }) => {
-      state.zipCode = payload;
+      state.zipcode = payload;
     },
   },
 });

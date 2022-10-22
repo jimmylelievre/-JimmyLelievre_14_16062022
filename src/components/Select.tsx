@@ -9,10 +9,11 @@ type Props = {
 
 const Select = ({ label, options, role, setValue }: Props) => {
   return (
-    <div className="select">
+    <div className="select-container">
       <p>{label}</p>
       <div className="box-select">
         <select
+          className="width"
           required
           role={role}
           onChange={(e) => {

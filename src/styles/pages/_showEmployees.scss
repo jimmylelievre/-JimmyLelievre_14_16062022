@@ -1,8 +1,22 @@
 .show-employees {
   position: absolute;
   top: 110px;
-  margin-left: 350px;
+  margin-left: 290px;
   h2 {
     margin-bottom: 20px;
+  }
+  .table {
+    margin: 0;
+  }
+}
+@media screen and (max-width: 1220px) {
+  .show-employees {
+    margin-top: 90px;
+    margin-left: 0;
+    padding: 40px;
+    width: 100%;
+    h2 {
+      text-align: left;
+    }
   }
 }
