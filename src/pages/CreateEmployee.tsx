@@ -115,7 +115,7 @@ const CreateEmployee = () => {
             <p>Create an employee</p>
           </button>
           <button className="button" type="reset">
-            <p>Réinitialiser le formulaire</p>
+            <p>Reset form</p>
           </button>
         </div>
       </form>
